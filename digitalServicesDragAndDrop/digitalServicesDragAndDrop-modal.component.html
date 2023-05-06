@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ "addNewCsv" | translate }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="uploadhistory()" shape="round" fill="solid"><ion-icon name="list"></ion-icon></ion-button>
+      <ion-button (click)="modalCtrl.dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)"
+              (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+  <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+    {{ "dropcsv" | translate }}.
+    <ion-button type="button" size="small" shape="round" (click)="openFileSelector()">{{ "browsefiles" | translate }}</ion-button>
+  </ng-template>
+</ngx-file-drop>
+<div class="ion-text-center" *ngIf="spinner">
+  <ion-spinner></ion-spinner>
+</div>
+<div class="upload-table">
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody class="upload-name-style">
+      <tr *ngFor="let item of files; let i=index">
+        <td><strong>{{ item.relativePath }}</strong></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+

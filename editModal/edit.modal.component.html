@@ -1,0 +1,147 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ "editStore.title" | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Store Actions</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button
+        size="small"
+        [disabled]="onValidDisable"
+        (click)="callUnicModal('valid')"
+        color="success"
+        shape="round"
+        fill="clear"
+        ><ion-icon name="checkmark-done-outline"></ion-icon>valid</ion-button
+      >
+      <ion-button
+        size="small"
+        [disabled]="onInvalidDisable"
+        (click)="callUnicModal('invalid')"
+        color="danger"
+        shape="round"
+        fill="clear"
+        ><ion-icon name="close-outline"></ion-icon>invalid</ion-button
+      >
+      <ion-button
+        size="small"
+        shape="round"
+        [disabled]="onCustomerDisable"
+        fill="clear"
+        (click)="callUnicModal('customer')"
+        color="warning"
+        ><ion-icon name="person-add-outline"></ion-icon>customer</ion-button
+      >
+      <ion-button
+        size="small"
+        [disabled]="onDeleteDisable"
+        (click)="callUnicModal('delete')"
+        color="danger"
+        shape="round"
+        fill="clear"
+        ><ion-icon name="trash-outline"></ion-icon>delete</ion-button
+      >
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>{{ "editStore.edit" | translate }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content *ngIf="editedStore">
+      <ion-item>
+        <ion-label position="fixed">Store name</ion-label>
+        <ion-input type="text" [(ngModel)]="editedStore.store_name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label class="ion-text-wrap" position="fixed"
+          >Google Address</ion-label
+        >
+        <ion-input
+          type="text"
+          [(ngModel)]="editedStore.formatted_address"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Store Category</ion-label>
+        <ion-select
+          multiple="true"
+          [(ngModel)]="store_category"
+          [cancelText]="'select_cancel' | translate"
+          [okText]="'select_ok' | translate"
+        >
+          <ion-select-option value="kafedes">{{
+            "newStore.coffee" | translate
+          }}</ion-select-option>
+          <ion-select-option value="souvlakia">{{
+            "newStore.souvlakia" | translate
+          }}</ion-select-option>
+          <ion-select-option value="krepes">{{
+            "newStore.crepa" | translate
+          }}</ion-select-option>
+          <ion-select-option value="pizza">{{
+            "newStore.pizza" | translate
+          }}</ion-select-option>
+          <ion-select-option value="burgers">{{
+            "newStore.burgers" | translate
+          }}</ion-select-option>
+          <ion-select-option value="mageireuta">{{
+            "newStore.mageireuta" | translate
+          }}</ion-select-option>
+          <ion-select-option value="thalassina">{{
+            "newStore.seafood" | translate
+          }}</ion-select-option>
+          <ion-select-option value="prwino">{{
+            "newStore.breakfast" | translate
+          }}</ion-select-option>
+          <ion-select-option value="zaxaroplastio">{{
+            "newStore.zaxaroplastio" | translate
+          }}</ion-select-option>
+          <ion-select-option value="asiatiko">{{
+            "newStore.asiatiko" | translate
+          }}</ion-select-option>
+          <ion-select-option value="psilika">{{
+            "newStore.psilika" | translate
+          }}</ion-select-option>
+          <ion-select-option value="kreopwleio">{{
+            "newStore.kreopwleio" | translate
+          }}</ion-select-option>
+          <ion-select-option value="byefood">{{
+            "newStore.byEfood" | translate
+          }}</ion-select-option>
+          <ion-select-option value="B2B">{{
+            "newStore.B2B" | translate
+          }}</ion-select-option>
+          <ion-select-option value="xwrisKatigoria">{{
+            "newStore.xwrisKatigoria" | translate
+          }}</ion-select-option>
+          <ion-select-option value="po_box">{{
+            "newStore.po_box" | translate
+          }}</ion-select-option>
+          <ion-select-option value="prosElegxo">{{
+            "newStore.proselegxo" | translate
+          }}</ion-select-option>
+          <ion-select-option value="ekleise">{{
+            "newStore.ekleise" | translate
+          }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<ion-footer>
+  <ion-toolbar style="text-align: center">
+    <ion-button size="default" type="submit" (click)="saveStore()" fill="solid"
+      >{{ "editStore.save" | translate }}
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

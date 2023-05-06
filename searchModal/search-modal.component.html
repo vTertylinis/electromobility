@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="dragAndDrop()"><ion-icon name="cloud-upload-outline"></ion-icon></ion-button>
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ "searchvendors" | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-searchbar animated="true" [(ngModel)]="searchTerm" [debounce]="500" placeholder="{{ 'home.search' | translate }}"></ion-searchbar>
+    <ion-item *ngIf="vendors" style="position: sticky; top: 0; background-color: transparent; z-index: 1;" overflow-scroll="true">
+      <ion-label class="ion-margin">{{ "viewCompetitors" | translate }}</ion-label>
+      <ion-checkbox
+        labelPlacement="start"
+        (click)="showCompetitors = !showCompetitors"
+      ></ion-checkbox>
+    </ion-item>
+    <div *ngIf="vendors && vendors.length === 0">
+      <ion-text>{{ "listIsEmpty" | translate }}</ion-text>
+    </div>
+    <div class="ion-text-center" *ngIf="!vendors">
+      <ion-spinner></ion-spinner>
+    </div>
+    <ion-virtual-scroll [items]="vendors | filter : searchTerm | filterVendorsByCompetitors : showCompetitors">
+      <ion-item *virtualItem="let vendor">
+        <ion-button slot="end" (click)="vendorDetails(vendor)">
+          <ion-icon name="information-circle-outline"></ion-icon>
+        </ion-button>
+        <ion-label>{{ vendor.VendorName }}</ion-label>
+      </ion-item>
+    </ion-virtual-scroll>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button fill="clear" size="small" (click)="digitalServices()">{{ "digitalServices" | translate }}</ion-button>
+  </ion-toolbar>
+</ion-footer>
