@@ -1,0 +1,33 @@
+{
+	"name": "dm-format-business-registry-csv",
+	"version": "1.0.0",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "Anestis <info@deliverymanager.gr> (http://www.deliverymanager.gr)",
+	"license": "ISC",
+	"no_api": true,
+	"files": [],
+	"lambda_role": "",
+	"api": {
+		"apiId": null,
+		"stageNames": [],
+		"method": null
+	},
+	"lambdaAlias": null,
+	"dependencies": {
+		"@deliverymanager/lambda_invoke": "^1.0.5",
+		"@deliverymanager/prune_fns": "^1.0.1",
+		"@deliverymanager/recursive_fns": "^1.0.1",
+		"@deliverymanager/s3_fns": "^1.0.5",
+		"aws-sdk": "^2.1347.0",
+		"bluebird": "^3.7.2",
+		"csv-parser": "^3.0.0",
+		"csvtojson": "^2.0.10",
+		"lodash": "^4.17.21",
+		"zlib": "^1.0.5"
+	},
+	"description": ""
+}

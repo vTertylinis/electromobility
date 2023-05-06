@@ -1,0 +1,40 @@
+{
+  "data": {
+    "Records": [
+      {
+        "eventVersion": "2.1",
+        "eventSource": "aws:s3",
+        "awsRegion": "eu-west-1",
+        "eventTime": "2023-04-14T12:31:30.786Z",
+        "eventName": "ObjectCreated:Put",
+        "userIdentity": {
+          "principalId": "AWS:AROAJDAWKWNX7YIYB77X2:bridges-twinsoft-create-order-file"
+        },
+        "requestParameters": {
+          "sourceIPAddress": "52.48.40.211"
+        },
+        "responseElements": {
+          "x-amz-request-id": "YTFQXHJFBC7RV477",
+          "x-amz-id-2": "3Mdmcfb9Uc+R8bsnHh78xRy0fz5itxBPYEsajzuv+LX4JDbSdcZOeLSJqr+E83kRww30BhHRyC2CpwQyVjHzhITkl/keFJix"
+        },
+        "s3": {
+          "s3SchemaVersion": "1.0",
+          "configurationId": "60379370-3f23-4cd6-9ef6-afc39cb875b6",
+          "bucket": {
+            "name": "advertising-csvs",
+            "ownerIdentity": {
+              "principalId": "A3BOWHV53Y5UU5"
+            },
+            "arn": "arn:aws:s3:::bridges-json-orders"
+          },
+          "object": {
+            "key": "csvs-folder/f6088f1c-6732-4a87-8f85-74f8e40ab447.csv",
+            "size": 1707,
+            "eTag": "99f14bad153645197cb6e6c2c831599c",
+            "sequencer": "00643947A2AA72FB94"
+          }
+        }
+      }
+    ]
+  }
+}
